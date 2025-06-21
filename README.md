@@ -1,0 +1,1 @@
+This projects is to test the website https://www.saucedemo.com/v1/index.html.
