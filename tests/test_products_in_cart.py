@@ -56,6 +56,7 @@ def test_remove_products_from_cart(login_logout, page: Page):
     for i in reversed(range(remove_buttons.count())):
         print(f"Removing item {i + 1}")
         remove_buttons.nth(i).click()
+        page.wait_for_load_state("networkidle")
     # verify the shopping cart is empty
     shopping_cart = page.locator("#shopping_cart_container").get_by_role("link")
     expect(shopping_cart).to_be_visible()
