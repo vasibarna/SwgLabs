@@ -2,11 +2,10 @@ import re
 from playwright.async_api import Page
 from playwright.sync_api import expect
 
-LOGIN_URL = "https://www.saucedemo.com/v1/index.html"
-
 
 def test_get_all_product_links(login_logout, page: Page):
     # get all the links from the first page
+    print("Verify the link to the products from the first page")
     links = page.get_by_role("link")
     pattern = re.compile(r"^(Sauce|Test)")
     # filter the links that starts with "Sauce" or "Test"
