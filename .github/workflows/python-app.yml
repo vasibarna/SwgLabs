@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-    - cron: '0 11 * * *'  # Runs once a day at 00:00 UTC
+    - cron: '0 11 * * *'  # Runs once a day at 11:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -40,3 +40,10 @@ jobs:
 
       - name: Run Playwright tests
         run: pytest
+
+      - name: Upload HTML test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: reports/test_report.html
+
