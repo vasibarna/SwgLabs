@@ -1,13 +1,12 @@
 import pytest
 from playwright.async_api import Page
-from secrets import USERNAME, PASSWORD
 
 
 @pytest.fixture(scope="function")
 def login_logout(page: Page):
     page.goto("https://www.saucedemo.com/v1/index.html")
-    page.locator("[id='user-name']").fill(USERNAME)
-    page.locator("[id='password']").fill(PASSWORD)
+    page.locator("[id='user-name']").fill("standard_user")
+    page.locator("[id='password']").fill("secret_sauce")
     page.click("text=LOGIN")
     yield
     page.get_by_role("button", name="Open Menu").click()
