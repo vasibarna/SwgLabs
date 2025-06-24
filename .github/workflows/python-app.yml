@@ -39,7 +39,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Run Playwright tests
-        run: pytest
+        run: pytest -s --capture=sys
 
       - name: Upload HTML test report
         uses: actions/upload-artifact@v4
