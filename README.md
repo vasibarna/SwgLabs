@@ -4,6 +4,7 @@ This projects is to test the website
 https://www.saucedemo.com/v1/index.html.
 
 ## Overview
+## Overview
 
 The purpose of this test plan is to ensure comprehensive testing coverage for the website using Playwright. 
 The test suite aims to validate the functionality of the application across different scenarios.
