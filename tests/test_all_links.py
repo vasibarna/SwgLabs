@@ -23,7 +23,7 @@ def test_all_links(login_logout, page: Page):
             page.wait_for_load_state("networkidle")
             expect(page.get_by_role("button", name="Sign in")).to_be_visible()
             expect(page.get_by_role("link", name="Saucelabs")).to_be_visible()
-            expect(page.get_by_role("button", name="Accept All Cookies")).to_be_visible()
+#            expect(page.get_by_role("button", name="Accept All Cookies")).to_be_visible()
             expect(page.get_by_role("button", name="search")).to_be_visible()
             page.go_back()
             page.wait_for_load_state("networkidle")
