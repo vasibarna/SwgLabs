@@ -5,10 +5,10 @@ from playwright.sync_api import expect
 
 def test_add_products_in_cart(login_logout, page: Page):
     # verify the shopping cart is empty
+    print("Verify the link to the products from the first page and 'ADD TO CART' functionality")
     shopping_cart = page.locator("#shopping_cart_container").get_by_role("link")
     expect(shopping_cart).to_be_visible()
     assert shopping_cart.get_attribute("name") in [None, 0, False, "0", "False", ""]
-
     # get all the links from the first page
     links = page.get_by_role("link")
     pattern = re.compile(r"^(Sauce|Test)")
@@ -37,6 +37,7 @@ def test_add_products_in_cart(login_logout, page: Page):
 
 def test_remove_products_from_cart(login_logout, page: Page):
     # get all the "ADD TO CART" buttons from the first page and add each product in the cart
+    print("Verify the 'ADD TO CART' button from the first page and 'REMOVE' button from shopping cart")
     add_buttons = page.get_by_role("button", name="ADD TO CART")
     for i in reversed(range(add_buttons.count())):
         print(f"Adding item {i}")
