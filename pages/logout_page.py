@@ -1,6 +1,9 @@
 from playwright.sync_api import Page
 
-
+''' 
+Attributes: Open Menu, Logout locators
+Behaviour: Click on each button/link
+'''
 class LogoutPage:
     def __init__(self, page: Page):
         self.page= page

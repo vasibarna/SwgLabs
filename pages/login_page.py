@@ -1,6 +1,9 @@
 from playwright.sync_api import Page
 
-
+''' 
+Attributes: Username, password and login button locators
+Behaviour: Fill in username, password and click on login button
+'''
 class LoginPage:
     def __init__(self, page: Page):
         self.page= page
