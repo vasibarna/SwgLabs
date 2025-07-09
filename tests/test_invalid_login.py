@@ -3,18 +3,20 @@ import pytest
 from playwright.sync_api import Page
 from playwright.sync_api import expect
 from conftest import URL
+from pages.login_page import LoginPage
+from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
 
 
 @pytest.mark.parametrize("username, password, error", [
     ("", "", "Username is required"),
-    ("standard_user", "", "Password is required"),
-    ("standard_user", "wrong_password", "Username and password do not match"),
-    ("wrong_user", "secret_sauce", "Username and password do not match"),
+    (USERNAME, "", "Password is required"),
+    (USERNAME, "wrong_password", "Username and password do not match"),
+    ("wrong_user", PASSWORD, "Username and password do not match"),
 ])
 def test_invalid_login(page: Page, username, password, error):
-    page.goto(URL)
     logging.info(f"Invalid login test with user '{username}' and password '{password}'. Expected is: {error} ")
-    page.locator("[data-test=\"username\"]").fill(username)
-    page.locator("[data-test=\"password\"]").fill(password)
-    page.get_by_role("button", name="LOGIN").click()
+    page.goto(URL)
+    login_page = LoginPage(page)
+    login_page.login(username, password)
     expect(page.locator("[data-test=\"error\"]")).to_contain_text(error)
+    logging.info("Login not successful, as expected")
