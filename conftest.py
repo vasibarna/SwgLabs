@@ -1,16 +1,34 @@
 import pytest
 from playwright.async_api import Page
+import logging
+from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
+from pages.login_page import LoginPage
+from pages.logout_page import LogoutPage
 
-LOGIN_URL = "https://www.saucedemo.com/v1/index.html"
 
 @pytest.fixture(scope="function")
-def login_logout(page: Page):
-    print(f"\nLOGIN ON WEB PAGE: '{LOGIN_URL}'")
-    page.goto(LOGIN_URL)
-    page.locator("[id='user-name']").fill("standard_user")
-    page.locator("[id='password']").fill("secret_sauce")
-    page.click("text=LOGIN")
-    yield
-    print(f"\nLOGOUT FROM WEB PAGE: '{LOGIN_URL}'")
-    page.get_by_role("button", name="Open Menu").click()
-    page.get_by_role("link", name="Logout").click()
+def login(page: Page):
+    # login on the pate
+    logging.info(f"Navigating to page: '{URL}' and login")
+    page.goto(URL)
+    login_page = LoginPage(page)
+    login_page.login(USERNAME, PASSWORD)
+    # execute the test
+    yield page
+
+
+@pytest.fixture(scope="function")
+def authenticated_page(page: Page):
+    # login on the pate
+    logging.info(f"Navigating to page: '{URL}' and login")
+    page.goto(URL)
+    login_page = LoginPage(page)
+    login_page.login(USERNAME, PASSWORD)
+
+    # execute the test
+    yield page
+
+    # logout from the page
+    logging.info(f"Logout from page: '{URL_LOGGED_IN}'")
+    logout_page = LogoutPage(page)
+    logout_page.logout()
