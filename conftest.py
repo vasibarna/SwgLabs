@@ -1,5 +1,5 @@
 import pytest
-from playwright.async_api import Page
+from playwright.sync_api import Page
 import logging
 from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
 from pages.login_page import LoginPage
