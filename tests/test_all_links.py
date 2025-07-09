@@ -11,7 +11,10 @@ def test_all_links(authenticated_page, page: Page):
     pattern = re.compile(r"^[A-KM-Za-km-z].*")
     # filter the links that starts with letter, except letter "L"=Logout
     all_links = [item for item in links.all_text_contents() if pattern.match(item)]
-    logging.warning(f"\nAvailable links {all_links}")
+    if len(all_links) != 0:
+        logging.info(f"\nAvailable links: '{all_links}'")
+    else:
+        logging.warning(f"\n No Available links: '{all_links}'")
     for product in all_links:
         if product in ["All Items"]:
             logging.info(f"Visiting link: {product}")
