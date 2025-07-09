@@ -8,7 +8,7 @@ from conftest import URL
 @pytest.mark.parametrize("username, password, error", [
     ("", "", "Username is required"),
     ("standard_user", "", "Password is required"),
-    ("standard_user", "standard_user", "Username and password do not match"),
+    ("standard_user", "wrong_password", "Username and password do not match"),
     ("wrong_user", "secret_sauce", "Username and password do not match"),
 ])
 def test_invalid_login(page: Page, username, password, error):
