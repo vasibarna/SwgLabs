@@ -12,9 +12,9 @@ def test_get_all_product_links(authenticated_page, page: Page):
     # filter the links that starts with "Sauce" or "Test"
     product_links = [item for item in links.all_text_contents() if pattern.match(item)]
     if len(product_links) != 0:
-        logging.info(f"\nAvailable links: '{product_links}'")
+        logging.info(f"Available links: '{product_links}'")
     else:
-        logging.warning(f"\n No Available links: '{product_links}'")
+        logging.warning(f"No Available links: '{product_links}'")
     for product in product_links:
         # click on each link
         logging.info(f"Visiting product: {product}")
