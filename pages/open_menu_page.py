@@ -9,6 +9,8 @@ Attributes:
 Methods:
     - click_open_menu_button(): Clicks the 'Open Menu' button to expand the sidebar navigation.
 """
+
+
 class OpenMenu:
     def __init__(self, page: Page):
         self.page= page

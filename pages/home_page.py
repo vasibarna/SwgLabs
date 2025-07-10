@@ -10,6 +10,7 @@ Methods:
     - click_on(): Clicks the matched product link.
 """
 
+
 class GetLink:
     def __init__(self, page: Page, product_name):
         self.page= page

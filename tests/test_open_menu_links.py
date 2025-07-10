@@ -1,7 +1,5 @@
 import logging
 import re
-import time
-
 from playwright.sync_api import Page
 from playwright.sync_api import expect
 from pages.home_page import GetLink

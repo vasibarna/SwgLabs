@@ -11,6 +11,7 @@ Methods:
     - logout(): Opens the navigation menu and clicks the 'Logout' link to log the user out.
 """
 
+
 class LogoutPage:
     def __init__(self, page: Page):
         self.page= page

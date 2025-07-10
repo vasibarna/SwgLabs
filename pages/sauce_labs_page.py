@@ -10,6 +10,8 @@ Methods:
     - verify_sign_in_button(): Checks that the 'Sign in' button is visible.
     - verify_search_button(): Checks that the 'Search' button is visible.
 """
+
+
 class SauceLab:
     def __init__(self, page: Page):
         self.page= page

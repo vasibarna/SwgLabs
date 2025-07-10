@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 import logging
 from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
 from pages.login_page import LoginPage
@@ -32,3 +32,4 @@ def authenticated_page(page: Page):
     logging.info(f"Logout from page: '{URL_LOGGED_IN}'")
     logout_page = LogoutPage(page)
     logout_page.logout()
+    expect(page).to_have_url(URL)

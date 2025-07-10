@@ -12,6 +12,7 @@ Methods:
     - verify_product_name(expected_text): Verifies that the product name contains the expected text.
 """
 
+
 class ProductPage:
     def __init__(self, page: Page):
         self.page= page

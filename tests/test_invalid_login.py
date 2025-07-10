@@ -2,7 +2,6 @@ import logging
 import pytest
 from playwright.sync_api import Page
 from playwright.sync_api import expect
-from conftest import URL
 from pages.login_page import LoginPage
 from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
 

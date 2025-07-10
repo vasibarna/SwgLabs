@@ -10,6 +10,3 @@ def start(name):
 
 if __name__ == "__main__":
     print(start("John Wick"))
-
-
-
