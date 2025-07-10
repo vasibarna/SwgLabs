@@ -9,13 +9,14 @@ Attributes:
     - login_button: Locator for the login button labeled 'LOGIN'.
 
 Methods:
-    - login(username, password): Fills in the username and password fields and clicks the login button to attempt authentication.
+    - login(username, password): Fills in the username and password fields and clicks the login button to 
+    attempt authentication.
 """
 
 
 class LoginPage:
     def __init__(self, page: Page):
-        self.page= page
+        self.page = page
         self.username_field = page.locator("[id='user-name']")
         self.password_field = page.locator("[id='password']")
         self.login_button = page.locator("text=LOGIN")

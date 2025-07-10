@@ -13,7 +13,7 @@ Methods:
 
 class OpenMenu:
     def __init__(self, page: Page):
-        self.page= page
+        self.page = page
         self.open_menu = page.get_by_role("button", name="Open Menu")
 
     def click_open_menu_button(self):

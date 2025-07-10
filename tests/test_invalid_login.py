@@ -3,7 +3,7 @@ import pytest
 from playwright.sync_api import Page
 from playwright.sync_api import expect
 from pages.login_page import LoginPage
-from config.constants import URL, USERNAME, PASSWORD, URL_LOGGED_IN
+from config.constants import URL, USERNAME, PASSWORD
 
 
 @pytest.mark.parametrize("username, password, error", [

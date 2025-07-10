@@ -14,7 +14,7 @@ Methods:
 
 class LogoutPage:
     def __init__(self, page: Page):
-        self.page= page
+        self.page = page
         self.open_menu = page.get_by_role("button", name="Open Menu")
         self.logout_button = page.get_by_role("link", name="Logout")
 

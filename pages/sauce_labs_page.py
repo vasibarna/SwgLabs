@@ -14,7 +14,7 @@ Methods:
 
 class SauceLab:
     def __init__(self, page: Page):
-        self.page= page
+        self.page = page
         self.sign_in = page.get_by_role("button", name="Sign in")
         self.search = page.get_by_role("button", name="search")
 

@@ -15,7 +15,7 @@ Methods:
 
 class ProductPage:
     def __init__(self, page: Page):
-        self.page= page
+        self.page = page
         self.back_button = page.get_by_role("button", name="<- Back")
         self.product_name = page.locator(".inventory_details_name")
 

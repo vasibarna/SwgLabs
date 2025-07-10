@@ -13,7 +13,7 @@ Methods:
 
 class GetLink:
     def __init__(self, page: Page, product_name):
-        self.page= page
+        self.page = page
         self.link = page.get_by_role("link", name=product_name, exact=False)
 
     def click_on(self):
